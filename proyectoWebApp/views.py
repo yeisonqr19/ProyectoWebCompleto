@@ -22,3 +22,4 @@ def blog(request):
 def contacto(request):
     
     return HttpResponse("Pagina contacto")
+
