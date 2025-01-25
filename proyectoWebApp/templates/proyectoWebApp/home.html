@@ -2,10 +2,10 @@
 
 <head>
 
-
+    {%load static %}
 
     <!-- Bootstrap -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '/proyectoWebApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
      <!-- Fonts -->
     
@@ -14,7 +14,7 @@
      
 
     <!-- Styles -->
-    <link href="/css/gestion.css" rel="stylesheet">
+    <link href="{% static '/proyectoWebApp/css/gestion.css' %}" rel="stylesheet"> 
 </head>
 
 <body>
@@ -55,7 +55,6 @@
     </div>
   </nav>
 
-
    <!-- Heading -->
    <section class="page-section clearfix">
     <div class="container">
@@ -73,8 +72,8 @@
       </div>
     </div>
   </section>
-
-    <!-- Message -->
+  
+  <!-- Message -->
     <section class="page-section cta">
       <div class="container">
         <div class="row">
@@ -124,8 +123,8 @@
 	</footer>
 
     <!-- Bootstrap -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static '/proyectoWebApp/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static '/proyectoWebApp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
 </body>
 
