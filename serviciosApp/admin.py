@@ -6,6 +6,7 @@ from .models import Servicio
 class ServicioAdmin(admin.ModelAdmin):
     list_filter = ("titulo",)
     readonly_fields = ("created", "updated")
+    search_fields = ("titulo",)
     
     
 admin.site.register(Servicio,ServicioAdmin)
