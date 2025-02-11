@@ -5,9 +5,11 @@ from .models import Categoria, Post
 def blog(request):
 
     posts = Post.objects.all()
+    categorias = Categoria.objects.all()
     
     ctx  = {
         'posts': posts,
+        'categorias': categorias,
     }
     
     return render(request, "blogApp/blog.html", ctx)
