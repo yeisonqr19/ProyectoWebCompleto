@@ -15,11 +15,12 @@
       <div class="container">
 
         <div class="intro">
-          
+
+           {% comment %} Cargo una imagen por defecto cuando no hayan imagenes que pertenezcan al Blog {% endcomment %}
           {% if post.imagen  %}
 
             <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt=""  style = "width: 50%;">
-
+            
           {% else %}
 
             <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="/media/default.jpg" alt=""  style = "width: 50%;">
@@ -33,44 +34,25 @@
             </h2>
             <div style = "text-align: left;">
               Autor: {{post.autor}}
-              {% for categoria in post.categorias.all  %}
-              <p>Categoria:   
-                <a href = "{% url 'categoria' categoria.id %}" style = "color: white; margin-left: 10px;">
-                  {{categoria.nombre}}
-                </a>
-              </p>
-
-              {% endfor %}
-
             </div>
           </div>          
         </div>
       </div>
     </section>
+
   {% endfor %}
 
   <section> 
-    <div style="width: 75%; text-align: center; color: white; margin:0 auto;">
-
-      Categorias:
-        {% for post in posts %}
-          {% for categoria in post.categorias.all  %}
-            <a href = "{% url 'categoria' categoria.id %}" style = "color: white; margin-left: 10px;">
-              {{categoria.nombre}}
-            </a>
-          {% endfor %}
-        {% endfor %}
-    </div>
 
     <div style="width: 75%; text-align: center; color: white; margin:0 auto;">
-      Autores:
-        {% for post in posts %}
-          {{post.autor}}
-        {% endfor %}
+
+      <a href = "{% url 'blog' %}" style = "color: white;">
+        Volver.
+      </a>
 
     </div>
 
-  </section>
+</section>
 
 {% else %}  
     <p style="color: white; text-align:center; ">Actualmente No hay Posts disponibles </p>
