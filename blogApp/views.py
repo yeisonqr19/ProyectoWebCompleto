@@ -41,7 +41,6 @@ def categoria(request, categoria_id):
     
     return render(request, "blogApp/categorias.html", ctx)
 
-
 def autor(request, autor_id):
     
     autor = User.objects.get(id = autor_id)

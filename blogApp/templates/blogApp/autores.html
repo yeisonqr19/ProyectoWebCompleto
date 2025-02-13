@@ -32,10 +32,23 @@
               <span class="section-heading-lower">{{post.titulo}}</span>
               <span class="section-heading-upper">{{post.contenido}}</span>
             </h2>
+
             <div style = "text-align: left;">
-              Autor: {{post.autor}}
+              Autor:   
+              <a href ="{% url 'autor' post.autor.id %}" style = "color: white; margin-left: 10px;">
+                {{post.autor}}
+              </a>
+              {% for categoria in post.categorias.all  %}
+              <p>Categoria:   
+                <a href = "{% url 'categoria' categoria.id %}" style = "color: white; margin-left: 10px;">
+                  {{categoria.nombre}}
+                </a>
+              </p>
+
+              {% endfor %}
             </div>
-          </div>          
+            
+          </div>         
         </div>
       </div>
     </section>
