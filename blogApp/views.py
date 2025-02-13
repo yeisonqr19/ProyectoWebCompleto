@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Categoria, Post
+#Para filtrar Los blogs por autores:
+from django.contrib.auth.models import User
 
 # Create your views here.
 def blog(request):
@@ -40,12 +42,14 @@ def categoria(request, categoria_id):
     return render(request, "blogApp/categorias.html", ctx)
 
 
-def autor(request, autor):
+def autor(request, autor_id):
     
-    post = Post.objects.filter(autor = autor)
+    autor = User.objects.get(id = autor_id)
+    posts = Post.objects.filter(autor = autor)
     
     ctx = {
-        'post': post
+        'autor':autor,
+        'posts':posts,
     }
     
-    return render(request, "blogApp/autores.html")
+    return render(request, "blogApp/autores.html", ctx)
