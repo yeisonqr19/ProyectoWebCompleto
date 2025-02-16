@@ -15,6 +15,7 @@ def blog(request):
             categorias.add(categoria)
     
     autores = set(post.autor for post in posts)
+    #autores = {post.autor for post in posts}
     # Esto es una compresion De conjuntos, es como si hiciera:
     # Recorremos todos los posts y agregamos su autor al conjunto
     # autores = set()

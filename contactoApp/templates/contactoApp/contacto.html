@@ -4,7 +4,13 @@
 
 {%block title%} Pagina contacto {% endblock %}
 
-
 {%block content%}
-  <h1>Pagina contacto Perfecto </h1>
+  <div>
+    <form method='post'>
+      {% csrf_token %}
+      {{contacto_form}}
+      <button type="submit"> Enviar </button>
+    </form>
+  </div>
+  
 {% endblock %}
