@@ -15,12 +15,12 @@ def contacto(request):
         if contacto_form.is_valid():
             nombre = request.POST.get("nombre")
             email = request.POST.get("email")
-            mensaje = request.POST.get("contenido")
-    
+            contenido = request.POST.get("contenido")
+            
+            
+                
     ctx = {
         'contacto_form':contacto_form,
     }
     
     return render(request, "contactoApp/contacto.html", ctx)
-
-
