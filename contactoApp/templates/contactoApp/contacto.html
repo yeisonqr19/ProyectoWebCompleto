@@ -7,6 +7,13 @@
 {%block content%}
   
     <div class="container-form">
+
+      {%if "valido" in request.PATH %}
+
+        <p>Informacion Enviada correctamente</p>
+
+      {% endif %}
+
       <form action="" method="POST" style="text-align:center;">
         {% csrf_token %}
         <table style="color: white; margin:20px auto;">
@@ -19,6 +26,8 @@
     </div>
 
     <p style="color: white;">{{request.POST}} </p>
+    <p style="color: white;">GET: {{request.GET}} </p>
+    
 
   
   

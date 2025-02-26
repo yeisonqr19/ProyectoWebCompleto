@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ContactoForm
 
 # Create your views here.
@@ -15,10 +15,11 @@ def contacto(request):
         if contacto_form.is_valid():
             nombre = request.POST.get("nombre")
             email = request.POST.get("email")
-            contenido = request.POST.get("contenido")
+            contenido = request.POST.get("contenido")               
+
+            #Redirijo al usuario luego del POSTS para mostrarle el mensaje que el formulario se envio correctamente.     
+            return redirect("/contacto/?valido")
             
-            
-                
     ctx = {
         'contacto_form':contacto_form,
     }
