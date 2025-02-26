@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Categoria, Post
+
 #Para filtrar Los blogs por autores:
 from django.contrib.auth.models import User
 
