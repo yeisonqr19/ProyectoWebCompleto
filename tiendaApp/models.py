@@ -8,7 +8,7 @@ class Categoria(models.Model):
     descripcion = models.CharField(max_length=255, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    
+     
     class Meta:
         verbose_name = "Categoria"
         verbose_name_plural = "categorias"
