@@ -6,6 +6,8 @@ class Categoria(models.Model):
     
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=255, blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     
     class Meta:
         verbose_name = "Categoria"
@@ -17,10 +19,12 @@ class Categoria(models.Model):
 class Producto(models.Model):
     
     nombre = models.CharField(max_length=100)
+    imagen = models.ImageField(upload_to="tienda/productos", null=True, blank=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
-    categoriaProducto = models.ManyToManyField(Categoria)
+    categorias = models.ManyToManyField(Categoria)
     stock = models.PositiveIntegerField(default=0)
-    created = models.DateField(auto_now_add=True, auto_created=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     
     class Meta:
         verbose_name = "Producto"

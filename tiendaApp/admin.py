@@ -10,18 +10,22 @@ admin.site.index_title = "Gestión de la Tienda"
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ("nombre", "descripcion")
     search_fields = ("nombre",)
+    readonly_fields = ("created", "updated")
     
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ("nombre", "precio", "mostrar_categorias", "created")
-    list_filter = ("categoriaProducto", "stock")
+    list_display = ("nombre", "precio", "mostrar_categorias", "created", "updated")
+    list_filter = ("categorias", "stock")
     search_fields = ("nombre", "descripcion")
-    readonly_fields = ("created",)
+    readonly_fields = ("created", "updated")
     
+    #Debo Crear esta funcion para poder mostrar Correctamente las categorias en el Panel Admin de mi Proyecto. 
     def mostrar_categorias(self, obj):
-        return ", ".join([categoria.nombre for categoria in obj.categoriaProducto.all()])
+        return ", ".join([categoria.nombre for categoria in obj.categorias.all()])
 
     mostrar_categorias.short_description = "Categorías"
     
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Producto, ProductoAdmin)
-    
+
+
+
