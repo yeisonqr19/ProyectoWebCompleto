@@ -8,9 +8,14 @@ admin.site.site_title = "Admin Tienda"
 admin.site.index_title = "Gestión de la Tienda"
 
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ("nombre", "descripcion")
+    list_display = ("nombre", "descripcion", "obtener_jerarquia")
+    list_filter = ("padre",)
     search_fields = ("nombre",)
     readonly_fields = ("created", "updated")
+    
+    def obtener_jerarquia(self, obj):
+        return obj.obtener_jerarquia()
+    obtener_jerarquia.short_description = "Jerarquias"
     
 class ProductoAdmin(admin.ModelAdmin):
     list_display = ("nombre", "precio", "mostrar_categorias", "created", "updated")
