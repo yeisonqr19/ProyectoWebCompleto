@@ -7,4 +7,15 @@
 
 {%block content%}
   <h1 style="color:white; ">Pagina Tienda </h1>
+
+  {% if productos  %}
+
+    {% for producto in productos %}
+
+      <p style="color:white;">Producto: {{producto.nombre}}</p>
+
+    {% endfor %}
+
+  {% endif %}
+
 {% endblock %}
