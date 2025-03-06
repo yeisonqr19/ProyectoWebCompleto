@@ -1,44 +1,93 @@
-{% extends "proyectoWebApp/base.html" %}
+{% extends "proyectoWebApp/base.html" %} {% load static %} {% block title %}
+Página Tienda {% endblock %} {% block content %}
 
-{% load static %}
+<!-- Menú de navegación de categorías y subcategorías -->
+<div class="container mt-4">
+  <div class="menu-categorias">
+    <ul class="list-group">
 
-{% block title %} Página Tienda {% endblock %}
+      {% for categoria in categorias %}
 
-{% block content %}
+        <li class="list-group-item">
+        <a href="{% url 'productos_por_categoria' categoria.id %}" class="text-decoration-none">{{ categoria.nombre }}</a>
 
+        {% if categoria.subcategorias.all %}
+        <ul class="list-group mt-2">
+          {% for subcategoria in categoria.subcategorias.all %}
+          <li class="list-group-item">
+            <a
+              href="{% url 'productos_por_subcategoria' subcategoria.id %}"
+              class="text-decoration-none"
+              >{{ subcategoria.nombre }}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        </li>
+      {% endfor %}
+
+       <!-- Botón "Mostrar todos los productos" -->
+       {% if filtro %}
+       <li class="list-group-item">
+         <a href="{% url 'tienda' %}" class="btn btn-outline-secondary w-100">
+           Mostrar todos
+         </a>
+       </li>
+     {% endif %}
+
+    </ul>
+  </div>
+</div>
+
+<!-- Lista de productos -->
 {% if productos %}
-
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-4 g-3"> <!-- Configuración responsiva -->
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-4 g-3">
+    <!-- Configuración responsiva -->
 
     {% for producto in productos %}
-    
     <div class="col-md-3 d-flex">
-
       <div class="card h-100 mt-2">
 
         {% if producto.imagen %}
-          <img src="{{ producto.imagen.url }}" alt="" class="card-img-top" />
+        <img
+          src="{{ producto.imagen.url }}"
+          alt="{{ producto.nombre }}"
+          class="card-img-top"
+        />
         {% else %}
-          <img src="/media/default.jpg" alt="Img por defecto" class="card-img-top" />
+        <img
+          src="/media/default.jpg"
+          alt="Img por defecto"
+          class="card-img-top"
+        />
         {% endif %}
-      
+
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">{{ producto.nombre }}</h5>
-          <p class="card-text mt-2">{{ producto.precio }}</p>
-          <div class="mt-auto"> 
+          <p class="card-text mt-2">Precio: ${{ producto.precio }}</p>
+          <p class="card-text">
+            Subcategoría: 
+            {% for categoria in producto.categorias.all %}
+              <a
+                href="{% url 'productos_por_subcategoria' categoria.id %}"
+                class="text-decoration-none"
+                >{{ categoria.nombre }}</a
+              >{% if not forloop.last %}, 
+               {% endif %} 
+            {% endfor %}
+
+          </p>
+          <div class="mt-auto">
             <a href="" class="btn btn-primary w-100">Comprar</a>
           </div>
         </div>
       </div>
-
     </div>
     {% endfor %}
   </div>
 </div>
-
 {% else %}
-  <p style="color:white;">Actualmente no hay productos disponibles</p>
-{% endif %}
-
-{% endblock %}
+<p style="color: white">Actualmente no hay productos disponibles</p>
+{% endif %} {% endblock %}
