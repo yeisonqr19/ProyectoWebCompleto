@@ -24,17 +24,17 @@ Página Tienda {% endblock %} {% block content %}
           {% endfor %}
         </ul>
         {% endif %}
-        </li>
+         </li>
       {% endfor %}
 
        <!-- Botón "Mostrar todos los productos" -->
-       {% if filtro %}
-       <li class="list-group-item">
-         <a href="{% url 'tienda' %}" class="btn btn-outline-secondary w-100">
+      {% if filtro %}
+        <li class="list-group-item">
+          <a href="{% url 'tienda' %}" class="btn btn-outline-secondary w-100">
            Mostrar todos
-         </a>
-       </li>
-     {% endif %}
+          </a>
+        </li>
+      {% endif %}
 
     </ul>
   </div>
