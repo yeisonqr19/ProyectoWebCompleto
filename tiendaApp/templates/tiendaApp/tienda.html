@@ -1,6 +1,10 @@
 {% extends "proyectoWebApp/base.html" %} {% load static %} {% block title %}
 Página Tienda {% endblock %} {% block content %}
 
+<div>
+  <p>CARRITOOOO</p>
+</div>
+
 <!-- Menú de navegación de categorías y subcategorías -->
 <div class="container mt-4">
   <div class="menu-categorias">
@@ -79,9 +83,15 @@ Página Tienda {% endblock %} {% block content %}
             {% endfor %}
 
           </p>
+
           <div class="mt-auto">
-            <a href="" class="btn btn-primary w-100">Comprar</a>
+            <a href="#" class="btn btn-primary w-100">Comprar</a>
           </div>
+
+          <div class="card-footer text-center">
+            <a href="#" class="btn btn-success w-100"> Agregar al Carrito</a>
+          </div>
+
         </div>
       </div>
     </div>
