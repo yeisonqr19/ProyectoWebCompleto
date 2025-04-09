@@ -300,4 +300,13 @@ ul.errorlist {
   color: white;
 }
 
+.carrito-logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  width: 90%;
+}
+
 
