@@ -7,4 +7,4 @@ def importe_total_carrito(request):
         for key, value in request.session["carro"]:
             total = total + float(value["precio"] * value["cantidad"])
             
-    return {"importe_total_carrito" : total}  
+    return {"importe_total_carrito" : total}
