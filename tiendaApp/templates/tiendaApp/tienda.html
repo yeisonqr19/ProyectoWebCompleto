@@ -5,38 +5,10 @@
 Página Tienda {% endblock %} {% block content %}
 
 <div class="carrito-logo">
-  <button class="btn p-0 border-0 bg-transparent" type="button"
-    data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasCarrito"
-    aria-controls="offcanvasCarrito">
-    <img src="{% static 'tiendaApp/img/carrito2.png' %}" alt="Carrito" style="width: 40px; height: 40px; cursor: pointer;">
-  </button>
-</div>
+  Total: {{ importe_total_carrito |formatear_moneda }}
 
-<!-- offcanvas del carrito -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel">
-  <div class="offcanvas-header">
-    <h5 id="offcanvasCarritoLabel">Mi carrito</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
-  </div>
-  <div class="offcanvas-body">
-    {% if carrito %}
-      <ul class="list-group">
-        {% for item in carrito %}
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            {{ item.nombre }}
-            <span class="badge bg-primary rounded-pill">{{ item.cantidad }}</span>
-          </li>
-        {% endfor %}
-      </ul>
-      <div class="mt-3">
-        <strong>Total: {{ importe_total_carrito|formatear_moneda }}</strong>
-      </div>
-      <a href="{% url 'carrito' %}" class="btn btn-success mt-3 w-100">Finalizar compra</a>
-    {% else %}
-      <p>Tu carrito está vacío.</p>
-    {% endif %}
-  </div>
+  {% include "carrito/widget.html" %}
+
 </div>
 
 <!-- Menú de navegación de categorías y subcategorías -->
@@ -119,11 +91,12 @@ Página Tienda {% endblock %} {% block content %}
           </p>
 
           <div class="mt-auto">
-            <a href="#" class="btn btn-primary w-100">Comprar</a>
+            <a href="{% url 'carrito:agregar' producto.id %}" class="btn btn-primary w-100">Comprar</a>
           </div>
 
           <div class="card-footer text-center">
-            <a href="#" class="btn btn-success w-100"> Agregar al Carrito</a>
+            <a href="{% url 'carrito:agregar' producto.id %}" 
+              class="btn btn-success w-100"> Agregar al Carrito</a>
           </div>
 
         </div>

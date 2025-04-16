@@ -303,8 +303,13 @@ ul.errorlist {
 .carrito-logo{
   display: flex;
   position: relative;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: end;
-  align-items: center;
-  width: 90%;
+  align-items: end;
+  color: white;
+  padding: 6px 29px 0 0;
+}
+
+.carrito-logo table{
+  width: 29%;
 }
