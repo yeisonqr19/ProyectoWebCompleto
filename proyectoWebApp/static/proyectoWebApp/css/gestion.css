@@ -302,11 +302,14 @@ ul.errorlist {
 
 .carrito-logo{
   display: flex;
-  flex-direction: row;
+  position: relative;
+  flex-direction: column;
   justify-content: end;
-  align-items: center;
-  color: rgb(255, 255, 255);
-  width: 90%;
+  align-items: end;
+  color: white;
+  padding: 6px 29px 0 0;
 }
 
-
+.carrito-logo table{
+  width: 29%;
+}

@@ -1,5 +1,7 @@
 from django.urls import path
 from tiendaApp import views
+from django.conf import settings
+from django.conf.urls import static
 
 urlpatterns = [
     path('', views.tienda, name="tienda"),
@@ -8,3 +10,4 @@ urlpatterns = [
     
     path('subcategoria/<int:subcategoria_id>/', views.productos_subcategorias, name="productos_por_subcategoria")
 ]
+
