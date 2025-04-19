@@ -5,10 +5,7 @@
 Página Tienda {% endblock %} {% block content %}
 
 <div class="carrito-logo">
-  Total: {{ importe_total_carrito |formatear_moneda }}
-
   {% include "carrito/widget.html" %}
-
 </div>
 
 <!-- Menú de navegación de categorías y subcategorías -->

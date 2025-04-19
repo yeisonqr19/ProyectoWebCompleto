@@ -1,0 +1,14 @@
+{% extends "proyectoWebApp/base.html" %} 
+{% load static %} 
+{% load filtros_custom %}
+
+{%block title %}
+    Inicio De sesion
+{% endblock %}
+
+{%block content%}
+
+    <p style= "color:white;">Inicie sesion para continuar </p>
+    <a href="{% url 'autenticacion:auth' %}" class="text-white">Registrarse</a>
+
+{% endblock %}

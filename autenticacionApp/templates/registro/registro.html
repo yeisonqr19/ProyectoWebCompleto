@@ -1,0 +1,15 @@
+{% extends "proyectoWebApp/base.html" %} 
+{% load static %} 
+{% load filtros_custom %}
+
+{%block title %}
+    Pagina de Registro
+{% endblock %}
+
+{%block content%}
+
+    <p class="text-white">Debe crear una cuenta para continuar </p>
+
+    <a href="{% url 'autenticacion:login' %}" class="text-white">Iniciar Sesion </a>
+
+{% endblock %}

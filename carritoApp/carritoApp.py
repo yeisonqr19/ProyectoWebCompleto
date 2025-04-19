@@ -16,10 +16,8 @@ class CarritoApp:
         if not carro:
             carro = self.session['carro'] = {}
             
-        else:
-            self.carro = carro
+        self.carro = carro
         
-    
     #voy a crear ahora esta funcion para agregar productos al carrito    
     def agregar_producto(self, producto):
         

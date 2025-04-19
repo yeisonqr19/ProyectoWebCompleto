@@ -1,3 +1,4 @@
+{% load filtros_custom %}
 <table class="table table-bordered" style="color: white; ">
     <thead>
         <tr>
@@ -21,7 +22,13 @@
                 <tr class="text-center">
                     <td> {{value.nombre}} </td>
                     <td> {{value.cantidad}} </td>
-                    <td> {{value.precio|formatear_moneda }} </td>
+                    <td> 
+                        <a href="{% url 'carrito:restar' value.producto_id %}" class="btn btn-danger btn-sm">-</a>
+
+                        <a href="{% url 'carrito:agregar' value.producto_id %}" class="btn btn-success btn-sm">+</a><br/>
+
+                        {{ value|total_producto }}
+                    </td>
                 </tr>
 
             {% endfor %}
@@ -34,5 +41,12 @@
 
     </tbody>
 
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                Total: {{importe_total_carrito|formatear_moneda}}
+            </td>
+        </tr>
+    </tfoot>
 </table>
 
