@@ -13,7 +13,7 @@ def agregar_producto(request, producto_id):
     #Utilizo el Metodo de agregar Producto de la clase:
     carro.agregar_producto(producto = producto)
     
-    return redirect("tienda")
+    return redirect("tienda:tienda")
 
 def eliminar_producto(request, producto_id):
     
@@ -23,7 +23,7 @@ def eliminar_producto(request, producto_id):
     
     carro.eliminar_producto(producto = producto)
     
-    return redirect("tienda")
+    return redirect("tienda:tienda")
 
 def restar_producto(request, producto_id):
     
@@ -33,7 +33,7 @@ def restar_producto(request, producto_id):
     
     carro.restar_producto(producto = producto)
     
-    return redirect("tienda")
+    return redirect("tienda:tienda")
 
 def limpiar_carro(request):
     
@@ -41,4 +41,4 @@ def limpiar_carro(request):
     
     carro.limpiar_carro()    
     
-    return redirect("tienda")
+    return redirect("tienda:tienda")

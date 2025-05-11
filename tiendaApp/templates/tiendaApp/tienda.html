@@ -16,14 +16,14 @@ Página Tienda {% endblock %} {% block content %}
       {% for categoria in categorias %}
 
         <li class="list-group-item">
-        <a href="{% url 'productos_por_categoria' categoria.id %}" class="text-decoration-none">{{ categoria.nombre }}</a>
+        <a href="{% url 'tienda:productos_por_categoria' categoria.id %}" class="text-decoration-none">{{ categoria.nombre }}</a>
 
         {% if categoria.subcategorias.all %}
         <ul class="list-group mt-2">
           {% for subcategoria in categoria.subcategorias.all %}
           <li class="list-group-item">
             <a
-              href="{% url 'productos_por_subcategoria' subcategoria.id %}"
+              href="{% url 'tienda:productos_por_subcategoria' subcategoria.id %}"
               class="text-decoration-none"
               >{{ subcategoria.nombre }}</a
             >
@@ -78,7 +78,7 @@ Página Tienda {% endblock %} {% block content %}
             Subcategoría: 
             {% for categoria in producto.categorias.all %}
               <a
-                href="{% url 'productos_por_subcategoria' categoria.id %}"
+                href="{% url 'tienda:productos_por_subcategoria' categoria.id %}"
                 class="text-decoration-none"
                 >{{ categoria.nombre }}</a
               >{% if not forloop.last %}, 

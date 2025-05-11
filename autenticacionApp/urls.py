@@ -1,9 +1,8 @@
 from django.urls import path
-from .import views
+from .views import VRegistro
 
 app_name = "autenticacion"
 
 urlpatterns = [
-    path("", views.autenticacion, name="auth"),
-    path("login/", views.login, name="login"),
+    path("", VRegistro.as_view(), name="auth"),
 ]

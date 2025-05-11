@@ -1,6 +1,8 @@
 from django.urls import path
 from tiendaApp import views
 
+app_name = "tienda"
+
 urlpatterns = [
     path('', views.tienda, name="tienda"),
     

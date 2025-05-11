@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'tiendaApp',
     'carritoApp',
     'autenticacionApp',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Controlador de Formularios para bootstrap 5:
+CRISPY_ALLOWED_TEMPLATES_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

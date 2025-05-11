@@ -5,7 +5,7 @@ class CarritoApp:
         #controlo la peticion que viene cuando creo una instancia de esta clase:
         self.request = request
         
-        #Aqui estoy almacenando la sesion:
+        #Aqui estoy almacenando la sesion:s
         self.session = request.session
         
         #creo ahora un carro para esta sesion:
